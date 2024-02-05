@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   String selectedCountry = 'IN';
   String selectedState = 'KA';
+  String selectedValue = "View";
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +30,12 @@ class _HomePageState extends State<HomePage> {
           CommonDropdown(
               label: 'More actions',
               items: const ['View', 'Edit', 'Send', 'Delete'],
-              selectedValue: "View",
-              onChanged: (value) {}),
+              selectedValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value!;
+                });
+              }),
           const SizedBox(height: 40),
           const Text("Task - 2"),
           Row(
